@@ -50,4 +50,23 @@ export class TokenService {
     }
     return 0;
     }
+
+  public getUsername(): string | null {
+    if (!this.isLogged()) {
+      return null;
+    }
+    const token = this.getToken();
+    const values = this.decodePayload(token!);
+    const username = values.sub;
+    return username;
+  }
+  public getRol(): string | null {
+    if (!this.isLogged()) {
+      return null;
+    }
+    const token = this.getToken();
+    const values = this.decodePayload(token!);
+    const tipoUsuario = values.r;//revisar porque no aparece el rol
+    return tipoUsuario
+  }
 }
