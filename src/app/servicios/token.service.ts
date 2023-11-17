@@ -27,13 +27,17 @@ export class TokenService {
 
   public login(token: string) {
     this.setToken(token);
-    this.router.navigate(['/']);
-  }
-
-  public logout() {
-    window.sessionStorage.clear();
-    this.router.navigate(['/login']);
-  }
+    this.router.navigate(["/"]).then(() => {
+    window.location.reload();
+    });
+    }
+  
+    public logout() {
+      window.sessionStorage.clear();
+      this.router.navigate(["/login"]).then(() => {
+      window.location.reload();
+      });
+      }
 
   private decodePayload(token: string): any {
     const payload = token!.split('.')[1];
@@ -50,4 +54,22 @@ export class TokenService {
     }
     return 0;
     }
+
+    public getEmail():string{
+      const token = this.getToken();
+      if(token){
+      const values = this.decodePayload(token);
+      return values.sub;
+      }
+      return "";
+      }
+
+      public getRole():string[]{
+        const token = this.getToken();
+        if(token){
+        const values = this.decodePayload(token);
+        return values.rol;
+        }
+        return [];
+        }
 }

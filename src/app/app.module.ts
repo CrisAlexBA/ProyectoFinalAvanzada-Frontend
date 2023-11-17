@@ -10,8 +10,10 @@ import { RegistroComponent } from './pagina/registro/registro.component';
 import { GestionPqrsComponent } from './pagina/gestion-pqrs/gestion-pqrs.component';
 import { CrearPqrsComponent } from './pagina/crear-pqrs/crear-pqrs.component';
 import { DetallePqrsComponent } from './pagina/detalle-pqrs/detalle-pqrs.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AlertaComponent } from './pagina/alerta/alerta.component';
+import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AlertaComponent } from './pagina/alerta/alerta.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: UsuarioInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

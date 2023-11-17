@@ -1,3 +1,3 @@
 export class TokenDTO {
-    token: string = '';
+    refreshToken:String='';
 }
