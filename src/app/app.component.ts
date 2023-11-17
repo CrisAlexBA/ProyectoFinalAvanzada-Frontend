@@ -10,6 +10,8 @@ export class AppComponent implements OnInit{
   footer = 'Clínica Aurora - 2023';
 isLogged = false;
 email:string = "";
+userType:string = "";
+userName:string = "";
 constructor(private tokenService:TokenService) { }
 ngOnInit(): void {
 this.isLogged = this.tokenService.isLogged();

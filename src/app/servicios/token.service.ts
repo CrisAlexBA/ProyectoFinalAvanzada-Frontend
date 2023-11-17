@@ -72,4 +72,16 @@ export class TokenService {
         }
         return [];
         }
+    }
+
+  public getUsername(): string | null {
+    if (!this.isLogged()) {
+      return null;
+    }
+    const token = this.getToken();
+    const values = this.decodePayload(token!);
+    const username = values.sub;
+    return username;
+  }
+  
 }
