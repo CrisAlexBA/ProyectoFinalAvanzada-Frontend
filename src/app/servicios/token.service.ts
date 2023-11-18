@@ -31,7 +31,7 @@ export class TokenService {
     window.location.reload();
     });
     }
-  
+
     public logout() {
       window.sessionStorage.clear();
       this.router.navigate(["/login"]).then(() => {
@@ -64,24 +64,22 @@ export class TokenService {
       return "";
       }
 
-      public getRole():string[]{
-        const token = this.getToken();
-        if(token){
-        const values = this.decodePayload(token);
-        return values.rol;
-        }
-        return [];
-        }
-    }
-
-  public getUsername(): string | null {
+  public getRole(): string {
     if (!this.isLogged()) {
-      return null;
+      return "";
     }
     const token = this.getToken();
     const values = this.decodePayload(token!);
-    const username = values.sub;
+    return values.rol;
+  }
+    public getUsername(): string{
+    if (!this.isLogged()) {
+      return "";
+    }
+    const token = this.getToken();
+    const values = this.decodePayload(token!);
+    const username = values.nombre;
     return username;
   }
-  
+
 }

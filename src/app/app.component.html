@@ -59,14 +59,17 @@
             <li><a routerLink="#" class="nav-link px-2 text-white">Gestionar Médico</a></li>
             <li>
               <ul>
-                <li><a routerLink="#" class="nav-link px-2 text-white">{{userName}}</a></li>
+                <li><a class="nav-link px-2 text-white">{{userName}}</a></li>
                 <li>{{userType}}</li>
               </ul>
             </li>
           </ul>
         </div>
+        <button type="button" (click)="logout()" class="btn btn-danger">Logout</button>
       </ng-template>
     </div>
+  </div>
+</header>
 
 <div class="seccion-pagina p-4">
   <div class="container">

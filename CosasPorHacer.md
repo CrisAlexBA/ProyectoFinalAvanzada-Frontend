@@ -19,5 +19,6 @@ ADMINISTRADOR:
 
 EXTRAS:
 -Cambiar contraseña
+- Correos electronicos
 -Botón para generar pdf¿?
 -Recordatorio de cita ¿? Hilo dentro del programa

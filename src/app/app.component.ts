@@ -8,6 +8,7 @@ styleUrls: ['./app.component.css']
 export class AppComponent implements OnInit{
   title = 'Clínica Aurora';
   footer = 'Clínica Aurora - 2023';
+
 isLogged = false;
 email:string = "";
 userType:string = "";
@@ -16,7 +17,9 @@ constructor(private tokenService:TokenService) { }
 ngOnInit(): void {
 this.isLogged = this.tokenService.isLogged();
 if(this.isLogged){
-this.email = this.tokenService.getEmail();
+  this.email = this.tokenService.getEmail();
+  this.userType = this.tokenService.getRole();
+  this.userName = this.tokenService.getUsername();
 }
 }
 public logout(){

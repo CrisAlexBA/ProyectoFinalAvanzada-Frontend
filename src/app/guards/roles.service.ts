@@ -10,7 +10,7 @@ import { TokenService } from '../servicios/token.service';
   providedIn: 'root',
 })
 export class RolesService {
-  realRole: string[] = [];
+  realRole: string = "";
   constructor(private tokenService: TokenService, private router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
