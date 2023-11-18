@@ -37,7 +37,7 @@ export class RegistroComponent {
   }
   public registrar() {
     if (this.registroPacienteDTO.urlFoto.length != 0) {
-      this.authService.registrarPaciente(this.registroPacienteDTO).subscribe({
+      this.authService.registrarse(this.registroPacienteDTO).subscribe({
         next: (data) => {
           this.alerta = { mensaje: data.respuesta, tipo: 'success' };
         },

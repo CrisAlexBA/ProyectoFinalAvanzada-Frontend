@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Buffer } from "buffer";
+import { Buffer } from 'buffer';
 
 const TOKEN_KEY = 'AuthToken';
 @Injectable({
@@ -27,17 +27,17 @@ export class TokenService {
 
   public login(token: string) {
     this.setToken(token);
-    this.router.navigate(["/"]).then(() => {
-    window.location.reload();
-    });
-    }
-  
-    public logout() {
-      window.sessionStorage.clear();
-      this.router.navigate(["/login"]).then(() => {
+    this.router.navigate(['/']).then(() => {
       window.location.reload();
-      });
-      }
+    });
+  }
+
+  public logout() {
+    window.sessionStorage.clear();
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
+  }
 
   private decodePayload(token: string): any {
     const payload = token!.split('.')[1];
@@ -49,30 +49,29 @@ export class TokenService {
   public getCodigo(): number {
     const token = this.getToken();
     if (token) {
-    const values = this.decodePayload(token);
-    return values.id;
+      const values = this.decodePayload(token);
+      return values.id;
     }
     return 0;
-    }
+  }
 
-    public getEmail():string{
-      const token = this.getToken();
-      if(token){
+  public getEmail(): string {
+    const token = this.getToken();
+    if (token) {
       const values = this.decodePayload(token);
       return values.sub;
-      }
-      return "";
-      }
-
-      public getRole():string[]{
-        const token = this.getToken();
-        if(token){
-        const values = this.decodePayload(token);
-        return values.rol;
-        }
-        return [];
-        }
     }
+    return '';
+  }
+
+  public getRole(): string []{
+    const token = this.getToken();
+    if (token) {
+      const values = this.decodePayload(token);
+      return values.rol;
+    }
+    return [];
+  }
 
   public getUsername(): string | null {
     if (!this.isLogged()) {
@@ -83,5 +82,4 @@ export class TokenService {
     const username = values.sub;
     return username;
   }
-  
 }

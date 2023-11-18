@@ -11,8 +11,8 @@ export class AuthService {
 private authURL = "http://localhost:8080/api/auth";
 constructor(private http:HttpClient) { }
 
-public registrarPaciente(paciente:RegistroPacienteDTO):Observable<MensajeDTO>{
-  return this.http.post<MensajeDTO>(`${this.authURL}/registrar-paciente`, paciente);
+public registrarse(paciente:RegistroPacienteDTO):Observable<MensajeDTO>{
+  return this.http.post<MensajeDTO>(`${this.authURL}/registrarse`, paciente);
   }
 
   public login(loginDTO:LoginDTO):Observable<MensajeDTO>{
