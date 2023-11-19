@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MensajeDTO } from '../modelo/mensaje-dto';
 import { RegistroPQRSDTO } from '../modelo/registro-pqrsdto';
-import { DetallePacienteDTO } from '../modelo/detalle-paciente-dto';
+import { DetallePacienteDTO } from '../modelo/paciente/detalle-paciente-dto';
 
 @Injectable({
   providedIn: 'root'

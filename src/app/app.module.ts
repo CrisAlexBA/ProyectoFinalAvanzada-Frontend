@@ -14,6 +14,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AlertaComponent } from './pagina/alerta/alerta.component';
 import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
 import { ModificarPacienteComponent } from './pagina/modificar-paciente/modificar-paciente.component';
+import { GestionCitasComponent } from './pagina/gestion-citas/gestion-citas.component';
+import { DetalleCitaComponent } from './pagina/detalle-cita/detalle-cita.component';
+import { DetalleConsultaComponent } from './pagina/detalle-consulta/detalle-consulta.component';
+import { RecuperacionCuentaComponent } from './pagina/recuperacion-cuenta/recuperacion-cuenta.component';
+import { CrearCitaComponent } from './pagina/crear-cita/crear-cita.component';
 
 
 @NgModule({
@@ -26,7 +31,12 @@ import { ModificarPacienteComponent } from './pagina/modificar-paciente/modifica
     CrearPqrsComponent,
     DetallePqrsComponent,
     AlertaComponent,
-    ModificarPacienteComponent
+    ModificarPacienteComponent,
+    GestionCitasComponent,
+    DetalleCitaComponent,
+    DetalleConsultaComponent,
+    RecuperacionCuentaComponent,
+    CrearCitaComponent
   ],
   imports: [
     BrowserModule,
