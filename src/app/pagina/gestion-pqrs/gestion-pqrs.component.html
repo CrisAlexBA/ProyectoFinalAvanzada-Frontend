@@ -21,6 +21,7 @@
           <th>Motivo</th>
           <th>Fecha de radicación</th>
           <th>Estado</th>
+          <th>Detalle</th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
@@ -35,12 +36,7 @@
             <p>{{ item.fecha }}</p>
           </td>
           <td>
-            <span
-              [ngClass]="
-                item.estado == 'ACTIVO' ? 'text-bg-success' : 'text-bg-danger'
-              "
-              class="badge"
-              >{{ item.estado }}</span
+            <span>{{ item.estado }}</span
             >
           </td>
           <td>

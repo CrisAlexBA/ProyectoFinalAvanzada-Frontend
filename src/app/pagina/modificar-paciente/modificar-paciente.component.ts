@@ -15,6 +15,9 @@ import { TokenService } from 'src/app/servicios/token.service';
 })
 
 export class ModificarPacienteComponent {
+cambiarContrasena() {
+throw new Error('Method not implemented.');
+}
 
   detallePacienteDTO: DetallePacienteDTO;
   ciudades: string[];
@@ -51,10 +54,10 @@ export class ModificarPacienteComponent {
     }
     });
   }
+
   public eliminar(){
 
   }
-
 
   public modificarDatos() {
     if (this.detallePacienteDTO.urlFoto.length != 0) {

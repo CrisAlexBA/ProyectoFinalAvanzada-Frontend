@@ -1,11 +1,11 @@
 <header class="p-3 text-bg-primary">
   <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
       <a routerLink="" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
         <img src="assets/img/logo.png" />
         <span class="fs-4 ms-3 me-3">{{ title }}</span>
       </a>
-      <div *ngIf="!isLogged; else loggedInBlock">
+      <div *ngIf="!isLogged; else loggedInBlock" class="ms-auto ms-lg-0">
         <!-- Bloque de etiquetas para usuario no autenticado -->
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul>
         <div class="text-end mb-md-0">
@@ -25,12 +25,13 @@
         <div *ngIf="userType === 'paciente'">
           <!-- Bloque de etiquetas para usuario paciente -->
           <ul class="nav col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a routerLink="#" class="nav-link px-2 text-white">PQRS</a></li>
-            <li><a routerLink="#" class="nav-link px-2 text-white">Historial Médico</a></li>
-            <li><a routerLink="#" class="nav-link px-2 text-white">Agendar Cita</a></li>
+            <li><a routerLink="/gestion-pqrs" class="nav-link px-2 text-white">PQRS</a></li>
+            <li><a routerLink="/gestion-citas" class="nav-link px-2 text-white">Historial Médico</a></li>
+            <li><a routerLink="/crear-cita" class="nav-link px-2 text-white">Agendar Cita</a></li>
+            <li><a routerLink="modificar-paciente" class="nav-link px-2 text-white">Actualizar datos</a></li>
             <li>
               <ul>
-                <li><a routerLink="#" class="nav-link px-2 text-white">{{userName}}</a></li>
+                <li><a class="nav-link px-2 text-white">{{userName}}</a></li>
                 <li>{{userType}}</li>
               </ul>
             </li>
@@ -65,7 +66,7 @@
             </li>
           </ul>
         </div>
-        <button type="button" (click)="logout()" class="btn btn-danger">Logout</button>
+        <button type="button" (click)="logout()" class="btn btn-danger m-4 ">Logout</button>
       </ng-template>
     </div>
   </div>

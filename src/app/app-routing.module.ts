@@ -13,12 +13,14 @@ import { CrearCitaComponent } from './pagina/crear-cita/crear-cita.component';
 import { DetalleCitaComponent } from './pagina/detalle-cita/detalle-cita.component';
 import { DetalleConsultaComponent } from './pagina/detalle-consulta/detalle-consulta.component';
 import { ModificarPacienteComponent } from './pagina/modificar-paciente/modificar-paciente.component';
+import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-password.component';
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   //Paciente
   { path: "modificar-paciente", component: ModificarPacienteComponent},
+  { path: "cambiar-password", component: CambiarPasswordComponent},
 
   { path: 'gestion-pqrs', component: GestionPqrsComponent },
   { path: 'crear-pqrs', component: CrearPqrsComponent },

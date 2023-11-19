@@ -1,1 +1,116 @@
-<p>crear-cita works!</p>
+<div class="card">
+  <div class="card-header ps-5 d-flex justify-content-center align-items-center">
+    <h5 class="mb-0">
+      <i class="fa-solid fa-file-circle-plus me-2"></i>Agendar una nueva cita
+    </h5>
+  </div>
+  <div class="card-body p-5">
+    <form #f="ngForm">
+      <div class="row">
+        <!-- Columna izquierda: Médico y Especialidad -->
+        <div class="col-sm-6">
+          
+          <!-- Especialidad -->
+          <div class="mb-3">
+            <label class="col-form-label">Especialidad: </label>
+            <select
+              name="especialidad"
+              required
+              class="form-select"
+              [(ngModel)]="detallesCitaDTO.especialidad"
+            >
+              <option value="" selected>Seleccione una especialidad</option>
+              <option [value]="item" *ngFor="let item of especialidades; index as i">
+                {{ item }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Fecha -->
+          <div class="mb-3">
+            <label class="col-form-label">Fecha: </label>
+            <input
+              #fecha="ngModel"
+              [ngClass]="
+                fecha.invalid && (fecha.dirty || fecha.touched)
+                  ? 'is-invalid'
+                  : ''
+              "
+              type="date"
+              name="fecha"
+              class="form-control"
+              required
+              [(ngModel)]="detallesCitaDTO.fecha"
+            />
+          </div>
+        </div>
+
+
+        <!-- Columna derecha: Fecha y Hora -->
+        <div class="col-sm-6">
+          <!-- Medico -->
+          <div class="mb-3">
+            <label class="col-form-label">Médico: </label>
+            <select
+              name="medicos"
+              required
+              class="form-select"
+              [(ngModel)]="detallesCitaDTO.codigoMedico"
+            >
+              <option value="" selected>Seleccione un médico</option>
+              <option [value]="item" *ngFor="let item of medicos; index as i">
+                {{ item }}
+              </option>
+            </select>
+          </div>
+          <!-- Hora -->
+          <div class="mb-3">
+            <label class="col-form-label">Hora: </label>
+            <select
+              name="hora"
+              required
+              class="form-select"
+              [(ngModel)]="detallesCitaDTO.hora"
+            >
+              <option value="" selected>Seleccione una hora</option>
+              <option [value]="item" *ngFor="let item of horas; index as i">
+                {{ item }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Motivo -->
+      <div class="mb-5">
+        <label class="col-form-label">Motivo: </label>
+        <textarea
+          #motivo="ngModel"
+          [ngClass]="
+            motivo.invalid && (motivo.dirty || motivo.touched)
+              ? 'is-invalid'
+              : ''
+          "
+          type="text"
+          [(ngModel)]="detallesCitaDTO.motivoConsulta"
+          name="motivo"
+          required
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <!-- Botón Agendar cita -->
+      <div class="d-flex justify-content-center">
+        <button
+          (click)="agendarCita()"
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="f.invalid"
+        >
+          <i class="fa-solid fa-circle-plus me-1"></i>Agendar cita
+        </button>
+      </div>
+      <app-alerta [alerta]="alerta"></app-alerta>
+    </form>
+  </div>
+</div>

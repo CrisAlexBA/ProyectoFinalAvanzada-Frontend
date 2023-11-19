@@ -19,6 +19,7 @@ import { DetalleCitaComponent } from './pagina/detalle-cita/detalle-cita.compone
 import { DetalleConsultaComponent } from './pagina/detalle-consulta/detalle-consulta.component';
 import { RecuperacionCuentaComponent } from './pagina/recuperacion-cuenta/recuperacion-cuenta.component';
 import { CrearCitaComponent } from './pagina/crear-cita/crear-cita.component';
+import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-password.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CrearCitaComponent } from './pagina/crear-cita/crear-cita.component';
     DetalleCitaComponent,
     DetalleConsultaComponent,
     RecuperacionCuentaComponent,
-    CrearCitaComponent
+    CrearCitaComponent,
+    CambiarPasswordComponent
   ],
   imports: [
     BrowserModule,
