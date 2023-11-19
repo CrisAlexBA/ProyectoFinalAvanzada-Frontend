@@ -11,25 +11,25 @@ export class PqrsService {
     this.pqrs = [];
     this.pqrs.push({
       codigo: 1,
-      estado: 'ACTIVO',
+      estadoPQRS: 'ACTIVO',
       motivo: 'Solicitud de información',
       fecha: '2023-10-12',
     });
     this.pqrs.push({
       codigo: 2,
-      estado: 'ACTIVO',
+      estadoPQRS: 'ACTIVO',
       motivo: 'Solicitud de cambio de fecha',
       fecha: '2023-09-29',
     });
     this.pqrs.push({
       codigo: 3,
-      estado: 'CERRADO',
+      estadoPQRS: 'CERRADO',
       motivo: 'Solicitud de información',
       fecha: '2023-11-01',
     });
     this.pqrs.push({
       codigo: 4,
-      estado: 'ACTIVO',
+      estadoPQRS: 'ACTIVO',
       motivo: 'Queja sobre médico',
       fecha: '2023-09-07',
     });
@@ -44,7 +44,7 @@ export class PqrsService {
     let codigo = this.pqrs.length + 1;
     this.pqrs.push({
       codigo: codigo,
-      estado: 'ACTIVO',
+      estadoPQRS: 'ACTIVO',
       motivo: pqrs.motivo,
       fecha: new Date().toISOString(),
     });

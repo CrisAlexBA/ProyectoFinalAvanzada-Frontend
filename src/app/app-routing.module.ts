@@ -16,31 +16,33 @@ import { ModificarPacienteComponent } from './pagina/modificar-paciente/modifica
 import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-password.component';
 const routes: Routes = [
   { path: '', component: InicioComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
-  //Paciente
-  { path: "modificar-paciente", component: ModificarPacienteComponent},
-  { path: "cambiar-password", component: CambiarPasswordComponent},
-
-  { path: 'gestion-pqrs', component: GestionPqrsComponent },
-  { path: 'crear-pqrs', component: CrearPqrsComponent },
-  { path: 'detalle-pqrs/:codigo', component: DetallePqrsComponent },
-
-  { path: 'gestion-citas', component: GestionCitasComponent },
-  { path: 'crear-cita', component: CrearCitaComponent },
-  { path: 'detalle-cita/:codigo', component: DetalleCitaComponent },
-  { path: 'detalle-consulta/:codigo', component: DetalleConsultaComponent },
   //Comienzo de la enrutacion
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'registro', component: RegistroComponent, canActivate: [LoginGuard] },
-  //Direcciones ya especializadas por rol
+  //Paciente
+  {
+    path: 'modificar-paciente',
+    component: ModificarPacienteComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
+  {
+    path: 'cambiar-password',
+    component: CambiarPasswordComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
   {
     path: 'gestion-pqrs',
     component: GestionPqrsComponent,
     canActivate: [RolesGuard],
     data: {
       expectedRole: ['paciente'],
-    },
+    }
   },
   {
     path: 'crear-pqrs',
@@ -48,8 +50,49 @@ const routes: Routes = [
     canActivate: [RolesGuard],
     data: {
       expectedRole: ['paciente'],
-    },
+    }
   },
+  {
+    path: 'detalle-pqrs/:codigo',
+    component: DetallePqrsComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
+  {
+    path: 'gestion-citas',
+    component: GestionCitasComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
+  {
+    path: 'crear-cita',
+    component: CrearCitaComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
+  {
+    path: 'detalle-cita/:codigo',
+    component: DetalleCitaComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
+  {
+    path: 'detalle-consulta/:codigo',
+    component: DetalleConsultaComponent,
+    canActivate: [RolesGuard],
+    data: {
+      expectedRole: ['paciente'],
+    }
+  },
+  //Admin
   {
     path: 'detalle-pqrs/:codigo',
     component: DetallePqrsComponent,

@@ -11,6 +11,7 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./gestion-citas.component.css']
 })
 export class GestionCitasComponent {
+
   citas: ItemCitaDTO[];
   constructor(private pacienteService: PacienteService, private tokenService: TokenService, private clinicaService: ClinicaService){
     this.citas = [];
@@ -27,6 +28,14 @@ export class GestionCitasComponent {
     console.log(error);
     }
     });
+    }
+
+    //Falta por programar
+    public buscarPorFecha() {
+      
+      }
+    public buscarPorMedico() {
+      
     }
 
 

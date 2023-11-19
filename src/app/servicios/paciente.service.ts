@@ -7,6 +7,7 @@ import { DetallePacienteDTO } from '../modelo/paciente/detalle-paciente-dto';
 import { NewPasswordDTO } from '../modelo/new-password-dto';
 import { RegistroRespuestaDTO } from '../modelo/registro-respuesta-dto';
 import { RegistroCitaDTO } from '../modelo/paciente/registro-cita-dto';
+import { PQRSPacienteDTO } from '../modelo/paciente/pqrspaciente-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,11 @@ import { RegistroCitaDTO } from '../modelo/paciente/registro-cita-dto';
     }
 
     public cambiarPassword(contrasena: NewPasswordDTO): Observable<MensajeDTO> {
-      return this.http.post<MensajeDTO>(`${this.userUrl}/cambiar-password`, contrasena);
+      return this.http.put<MensajeDTO>(`${this.userUrl}/cambiar-password`, contrasena);
       }
 
-  public crearPQRS(registroPQRSDTO: RegistroPQRSDTO): Observable<MensajeDTO> {
-  return this.http.post<MensajeDTO>(`${this.userUrl}/crear-pqrs`, registroPQRSDTO);
+  public crearPQRS(PQRSpacienteDTO: PQRSPacienteDTO): Observable<MensajeDTO> {
+  return this.http.post<MensajeDTO>(`${this.userUrl}/crear-pqrs`, PQRSpacienteDTO);
   }
   public listarPQRSPaciente(codigoPaciente: number): Observable<MensajeDTO> {
   return this.http.get<MensajeDTO>(`${this.userUrl}/listar-pqrs/${codigoPaciente}`);

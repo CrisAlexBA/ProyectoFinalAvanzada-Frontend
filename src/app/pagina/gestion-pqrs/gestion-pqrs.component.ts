@@ -18,6 +18,7 @@ constructor(private pacienteService: PacienteService, private tokenService: Toke
     let codigo = this.tokenService.getCodigo();
     this.pacienteService.listarPQRSPaciente(codigo).subscribe({
     next: data => {
+    console.log(data)
     this.pqrs = data.respuesta;
     },
     error: error => {
