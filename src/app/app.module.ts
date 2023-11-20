@@ -23,6 +23,9 @@ import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-pass
 import {NgOptimizedImage} from "@angular/common";
 import { CrearMedicoComponent } from './pagina/admin/crear-medico/crear-medico.component';
 import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestionar-medicos.component";
+import { DetalleMedicoComponent } from './pagina/admin/detalle-medico/detalle-medico.component';
+import { EditarMedicoComponent } from './pagina/admin/editar-medico/editar-medico.component';
+import { GestionarPqrsAdminComponent } from './pagina/admin/gestionar-pqrs-admin/gestionar-pqrs-admin.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestio
     CrearCitaComponent,
     CambiarPasswordComponent,
     GestionarMedicosComponent,
-    CrearMedicoComponent
+    CrearMedicoComponent,
+    DetalleMedicoComponent,
+    EditarMedicoComponent,
+    GestionarPqrsAdminComponent
   ],
     imports: [
         BrowserModule,

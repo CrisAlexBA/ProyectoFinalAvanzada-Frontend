@@ -16,6 +16,9 @@ import { ModificarPacienteComponent } from './pagina/modificar-paciente/modifica
 import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-password.component';
 import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestionar-medicos.component";
 import {CrearMedicoComponent} from "./pagina/admin/crear-medico/crear-medico.component";
+import {DetalleMedicoComponent} from "./pagina/admin/detalle-medico/detalle-medico.component";
+import {EditarMedicoComponent} from "./pagina/admin/editar-medico/editar-medico.component";
+
 const routes: Routes = [
   { path: '', component: InicioComponent },
   //Comienzo de la enrutacion
@@ -105,6 +108,9 @@ const routes: Routes = [
 
   {path: 'gestion-medicos', component: GestionarMedicosComponent},
   {path: 'crear-medico', component: CrearMedicoComponent},
+  {path: 'detalle-medico/:codigo', component: DetalleMedicoComponent},
+  {path: 'editar-medico/:codigo', component: EditarMedicoComponent},
+
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 @NgModule({

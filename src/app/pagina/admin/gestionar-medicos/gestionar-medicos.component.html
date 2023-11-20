@@ -7,10 +7,12 @@
 
   <div class="card-body p-5">
     <div class="d-flex align-items-center justify-content-between mb-3">
+
       <div class="mb-3">
         <button type="button" routerLink="/crear-medico" class="btn btn-success me-2"><i
           class="fa-solid fa-plus me-1"></i> Crear nuevo médico</button>
       </div>
+
       <div class="input-group mb-3">
         <input type="text" class="form-control border-2" placeholder="Buscar médicos" aria-label="Recipient's username" aria-describedby="button-addon2">
         <button class="btn btn-primary" type="button" id="button-addon2" routerLink="">
@@ -36,7 +38,7 @@
           <td><span [ngClass]="item.estadoUsuario == 'ACTIVO' ? 'text-bg-success' : 'text-bg-danger'" class="badge">{{item.estadoUsuario}}</span></td>
           <td><p>{{item.especialidad}}</p></td>
 
-          <td><a routerLink="/#/{{item.codigo}}" ><i class="fa-solid fa-circle-info me-2"></i>Ver detalle</a></td>
+          <td><a routerLink="/detalle-medico/{{item.codigo}}" ><i class="fa-solid fa-circle-info me-2"></i>Ver detalle</a></td>
 
         </tr>
         </tbody>
