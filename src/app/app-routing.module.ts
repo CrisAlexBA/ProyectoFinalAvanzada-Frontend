@@ -14,6 +14,8 @@ import { DetalleCitaComponent } from './pagina/detalle-cita/detalle-cita.compone
 import { DetalleConsultaComponent } from './pagina/detalle-consulta/detalle-consulta.component';
 import { ModificarPacienteComponent } from './pagina/modificar-paciente/modificar-paciente.component';
 import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-password.component';
+import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestionar-medicos.component";
+import {CrearMedicoComponent} from "./pagina/admin/crear-medico/crear-medico.component";
 const routes: Routes = [
   { path: '', component: InicioComponent },
   //Comienzo de la enrutacion
@@ -99,6 +101,10 @@ const routes: Routes = [
     canActivate: [RolesGuard],
     data: { expectedRole: ['paciente', 'admin'] },
   },
+
+
+  {path: 'gestion-medicos', component: GestionarMedicosComponent},
+  {path: 'crear-medico', component: CrearMedicoComponent},
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 @NgModule({

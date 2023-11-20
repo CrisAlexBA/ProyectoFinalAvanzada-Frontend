@@ -20,6 +20,9 @@ import { DetalleConsultaComponent } from './pagina/detalle-consulta/detalle-cons
 import { RecuperacionCuentaComponent } from './pagina/recuperacion-cuenta/recuperacion-cuenta.component';
 import { CrearCitaComponent } from './pagina/crear-cita/crear-cita.component';
 import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-password.component';
+import {NgOptimizedImage} from "@angular/common";
+import { CrearMedicoComponent } from './pagina/admin/crear-medico/crear-medico.component';
+import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestionar-medicos.component";
 
 
 @NgModule({
@@ -38,14 +41,17 @@ import { CambiarPasswordComponent } from './pagina/cambiar-password/cambiar-pass
     DetalleConsultaComponent,
     RecuperacionCuentaComponent,
     CrearCitaComponent,
-    CambiarPasswordComponent
+    CambiarPasswordComponent,
+    GestionarMedicosComponent,
+    CrearMedicoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        NgOptimizedImage
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: UsuarioInterceptor, multi: true }
   ],
