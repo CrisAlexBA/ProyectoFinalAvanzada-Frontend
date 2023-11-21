@@ -51,7 +51,7 @@ import { PQRSPacienteDTO } from '../modelo/paciente/pqrspaciente-dto';
       }
 
       public agendarCita(registroCitaDTO:RegistroCitaDTO): Observable<MensajeDTO> {
-        return this.http.post<MensajeDTO>(`${this.userUrl}//agendar-cita`, registroCitaDTO);
+        return this.http.post<MensajeDTO>(`${this.userUrl}/agendar-cita`, registroCitaDTO);
         }
 
         public verDetallesCita(codigoPaciente: number): Observable<MensajeDTO> {

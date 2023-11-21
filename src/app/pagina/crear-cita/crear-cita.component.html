@@ -1,5 +1,7 @@
 <div class="card">
-  <div class="card-header ps-5 d-flex justify-content-center align-items-center">
+  <div
+    class="card-header ps-5 d-flex justify-content-center align-items-center"
+  >
     <h5 class="mb-0">
       <i class="fa-solid fa-file-circle-plus me-2"></i>Agendar una nueva cita
     </h5>
@@ -9,7 +11,6 @@
       <div class="row">
         <!-- Columna izquierda: Médico y Especialidad -->
         <div class="col-sm-6">
-          
           <!-- Especialidad -->
           <div class="mb-3">
             <label class="col-form-label">Especialidad: </label>
@@ -18,9 +19,14 @@
               required
               class="form-select"
               [(ngModel)]="detallesCitaDTO.especialidad"
+              #especialidadSelect="ngModel"
+              (change)="cargarMedicos(especialidadSelect?.value)"
             >
               <option value="" selected>Seleccione una especialidad</option>
-              <option [value]="item" *ngFor="let item of especialidades; index as i">
+              <option
+                [value]="item"
+                *ngFor="let item of especialidades; index as i"
+              >
                 {{ item }}
               </option>
             </select>
@@ -45,24 +51,43 @@
           </div>
         </div>
 
-
         <!-- Columna derecha: Fecha y Hora -->
         <div class="col-sm-6">
           <!-- Medico -->
-          <div class="mb-3">
-            <label class="col-form-label">Médico: </label>
-            <select
-              name="medicos"
-              required
-              class="form-select"
-              [(ngModel)]="detallesCitaDTO.codigoMedico"
-            >
-              <option value="" selected>Seleccione un médico</option>
-              <option [value]="item" *ngFor="let item of medicos; index as i">
-                {{ item.nombre }}
-              </option>
-            </select>
+          
+          <div class="col-sm-10">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Código</th>
+                  <th>Nombre del Medico</th>
+                  <th>Correo del Medico</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let item of medicos">
+                  <td>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      (change)="seleccionar(item.codigo)"
+                    />
+                  </td>
+                  <td>
+                    <p>{{ item.cedula }}</p>
+                  </td>
+                  <td>
+                    <p>{{ item.especialidad }}</p>
+                  </td>
+                  <td>
+                    <p>{{ item.nombre }}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
           <!-- Hora -->
           <div class="mb-3">
             <label class="col-form-label">Hora: </label>
@@ -80,7 +105,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Motivo -->
       <div class="mb-5">
         <label class="col-form-label">Motivo: </label>
@@ -103,9 +128,13 @@
       <div class="d-flex justify-content-center">
         <button
           (click)="agendarCita()"
-          class="btn btn-primary btn-success "
+          class="btn btn-primary btn-success"
           type="submit"
-          [disabled]="f.invalid"
+          [disabled]="
+            f.invalid ||
+            especialidadSelect.invalid ||
+            especialidadSelect.pristine === null
+          "
         >
           <i class="fa-solid fa-circle-plus me-1"></i>Agendar cita
         </button>
