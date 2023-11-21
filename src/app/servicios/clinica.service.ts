@@ -11,8 +11,8 @@ constructor(private http: HttpClient) { }
 public listarCiudades(): Observable<MensajeDTO> {
 return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-ciudades`);
 }
-public listarEspecialidades(): Observable<MensajeDTO> {
-return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-especialidades`);
+public listarEspecialidad(): Observable<MensajeDTO> {
+return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-especialidad`);
 }
 public listarTipoSangre(): Observable<MensajeDTO> {
 return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-tipo-sangre`);

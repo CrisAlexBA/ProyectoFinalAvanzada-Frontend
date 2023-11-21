@@ -34,7 +34,14 @@ public agendarCita() {
 
 }
 public cargarEspecialidades(){
-  
+  this.clinicaService.listarEspecialidad().subscribe({
+    next: (data) => {
+      this.especialidades = data.respuesta;
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
 }
 
 public cargarMedicos(){
