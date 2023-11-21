@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {RegistroMedicoDTO} from "../../../modelo/administrador/registro-medico-dto";
+import {AdministradorService} from "../../../servicios/administrador.service";
+import {ClinicaService} from "../../../servicios/clinica.service";
 
 @Component({
   selector: 'app-crear-medico',
@@ -12,10 +14,10 @@ export class CrearMedicoComponent {
 
     alerta: any;
     foto: string = 'assets/img/user-doctor-solid.svg';
-    ciudades: string[];
-    especialidades: string[];
+    ciudades: String[];
+    especialidades: String[];
 
-    constructor() {
+    constructor(private adminService: AdministradorService, private clinicaService: ClinicaService) {
         this.registroMedicoDTO = new RegistroMedicoDTO();
 
         this.ciudades = [];
@@ -42,17 +44,24 @@ export class CrearMedicoComponent {
     }
 
     private cargarCiudades() {
-        this.ciudades.push("Armenia");
-        this.ciudades.push("Calarcá");
-        this.ciudades.push("Pereira");
-        this.ciudades.push("Manizales");
-        this.ciudades.push("Medellín");
+        this.clinicaService.listarCiudades().subscribe({
+            next: (data) => {
+                this.ciudades = data.respuesta;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        })
     }
 
     private cargarEspecialidades() {
-        this.especialidades.push("Medicina General");
-        this.especialidades.push("Pediatría");
-        this.especialidades.push("Ginecología");
-        this.especialidades.push("Oftalmología");
+        this.clinicaService.listarEspecialidad().subscribe({
+            next: (data) => {
+                this.especialidades = data.respuesta;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        })
     }
 }

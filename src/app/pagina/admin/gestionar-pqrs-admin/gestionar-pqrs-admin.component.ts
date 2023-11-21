@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {ItemPQRSDTO} from "../../../modelo/item-pqrsdto";
+import {AdministradorService} from "../../../servicios/administrador.service";
+import {TokenService} from "../../../servicios/token.service";
 
 @Component({
   selector: 'app-gestionar-pqrs-admin',
@@ -8,17 +10,20 @@ import {ItemPQRSDTO} from "../../../modelo/item-pqrsdto";
 })
 export class GestionarPqrsAdminComponent {
   pqrs: ItemPQRSDTO[];
-
-
-  constructor() {
+  constructor(private adminService: AdministradorService, private tokenService: TokenService){
     this.pqrs = [];
     this.obtenerPqrs();
   }
 
   private obtenerPqrs() {
-    this.pqrs.push({codigo: 1, fecha: '2021-05-01', motivo: 'Motivo 1', estadoPQRS: 'EN_PROCESO'});
-    this.pqrs.push({codigo: 2, fecha: '2021-05-02', motivo: 'Motivo 2', estadoPQRS: 'ARCHIVADO'});
-    this.pqrs.push({codigo: 3, fecha: '2021-05-03', motivo: 'Motivo 3', estadoPQRS: 'RESUELTO'});
-    this.pqrs.push({codigo: 4, fecha: '2021-05-04', motivo: 'Motivo 4', estadoPQRS: 'NUEVO'});
+    this.adminService.listarPQRS().subscribe({
+      next: data => {
+        console.log(data)
+        this.pqrs = data.respuesta;
+      },
+      error: error => {
+        console.log(error);
+      }
+    })
   }
 }

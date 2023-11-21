@@ -22,6 +22,12 @@ import {GestionarPqrsAdminComponent} from "./pagina/admin/gestionar-pqrs-admin/g
 import {DetallePqrsAdminComponent} from "./pagina/admin/detalle-pqrs-admin/detalle-pqrs-admin.component";
 import {GestionarCitasComponent} from "./pagina/medico/gestionar-citas/gestionar-citas.component";
 import {AtencionCitaComponent} from "./pagina/medico/atencion-cita/atencion-cita.component";
+import {
+  HistorialCitasPacienteComponent
+} from "./pagina/medico/historial-citas-paciente/historial-citas-paciente.component";
+import {
+  HistorialConsultasMedicoComponent
+} from "./pagina/medico/historial-consultas-medico/historial-consultas-medico.component";
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -110,14 +116,67 @@ const routes: Routes = [
   },
 
 
-  {path: 'gestion-medicos', component: GestionarMedicosComponent},
-  {path: 'crear-medico', component: CrearMedicoComponent},
-  {path: 'detalle-medico/:codigo', component: DetalleMedicoComponent},
-  {path: 'editar-medico/:codigo', component: EditarMedicoComponent},
-  {path: 'gestion-pqrs-admin', component: GestionarPqrsAdminComponent},
-  {path: 'detalle-pqrs-admin/:codigo', component: DetallePqrsAdminComponent},
-  {path: 'gestion-citas-medico', component: GestionarCitasComponent},
-  {path: 'atencion-cita/:codigo', component: AtencionCitaComponent},
+  {
+    path: 'gestion-medicos',
+    component: GestionarMedicosComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['admin'] },
+  },
+  {
+    path: 'crear-medico',
+    component: CrearMedicoComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['admin'] },
+  },
+  {
+    path: 'detalle-medico/:codigo',
+    component: DetalleMedicoComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['admin'] },
+  },
+  {
+    path: 'editar-medico/:codigo',
+    component: EditarMedicoComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['admin'] },
+  },
+  {
+    path: 'gestion-pqrs-admin',
+    component: GestionarPqrsAdminComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['admin'] },
+  },
+  {
+    path: 'detalle-pqrs-admin/:codigo',
+    component: DetallePqrsAdminComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['admin'] },
+  },
+
+  {
+    path: 'gestion-citas-medico',
+    component: GestionarCitasComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['medico'] },
+  },
+  {
+    path: 'atencion-cita/:codigo',
+    component: AtencionCitaComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['medico'] },
+  },
+  {
+    path: 'historial-paciente/:codigo',
+    component: HistorialCitasPacienteComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['medico'] },
+  },
+  {
+    path: 'historial-consultas',
+    component: HistorialConsultasMedicoComponent,
+    canActivate: [RolesGuard],
+    data:{ expectedRole: ['medico'] },
+  },
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 @NgModule({

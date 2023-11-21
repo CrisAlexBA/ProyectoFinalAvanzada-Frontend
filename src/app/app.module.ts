@@ -29,6 +29,8 @@ import { GestionarPqrsAdminComponent } from './pagina/admin/gestionar-pqrs-admin
 import { DetallePqrsAdminComponent } from './pagina/admin/detalle-pqrs-admin/detalle-pqrs-admin.component';
 import { GestionarCitasComponent } from './pagina/medico/gestionar-citas/gestionar-citas.component';
 import { AtencionCitaComponent } from './pagina/medico/atencion-cita/atencion-cita.component';
+import { HistorialCitasPacienteComponent } from './pagina/medico/historial-citas-paciente/historial-citas-paciente.component';
+import { HistorialConsultasMedicoComponent } from './pagina/medico/historial-consultas-medico/historial-consultas-medico.component';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import { AtencionCitaComponent } from './pagina/medico/atencion-cita/atencion-ci
     GestionarPqrsAdminComponent,
     DetallePqrsAdminComponent,
     GestionarCitasComponent,
-    AtencionCitaComponent
+    AtencionCitaComponent,
+    HistorialCitasPacienteComponent,
+    HistorialConsultasMedicoComponent
   ],
     imports: [
         BrowserModule,

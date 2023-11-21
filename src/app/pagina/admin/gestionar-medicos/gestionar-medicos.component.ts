@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {ItemMedicoDTO} from "../../../modelo/administrador/item-medico-dto";
-import {MedicosService} from "../../../servicios/medicos.service";
+import {MedicoService} from "../../../servicios/medico.service";
+import {TokenService} from "../../../servicios/token.service";
+import {AdministradorService} from "../../../servicios/administrador.service";
 
 @Component({
   selector: 'app-crear-medico',
@@ -9,8 +11,20 @@ import {MedicosService} from "../../../servicios/medicos.service";
 })
 export class GestionarMedicosComponent {
   medicos: ItemMedicoDTO[];
-  constructor(private medicosService: MedicosService){
-    this.medicos = medicosService.listar();
+  constructor(private adminService: AdministradorService, private tokenService: TokenService) {
+    this.medicos = [];
+    this.obtenerMedicos();
   }
 
+  private obtenerMedicos() {
+    this.adminService.listarmedicos().subscribe(
+        data => {
+            console.log(data)
+            this.medicos = data.respuesta;
+        },
+        error => {
+            console.log(error);
+        }
+    )
+  }
 }
