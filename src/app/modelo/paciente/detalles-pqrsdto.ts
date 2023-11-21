@@ -1,3 +1,5 @@
+import { RespuestaDTO } from "../respuesta-dto";
+
 export interface DetallesPQRSDTO {
     codigo: number;
     fechaPQRS:string;
@@ -6,6 +8,6 @@ export interface DetallesPQRSDTO {
     nomMedico:string;
     especialidad:string;
     motivoPQRS:string;
-    //List<RespuestaDTO> mensajes;
+    mensajes: RespuestaDTO[];
 
 }
