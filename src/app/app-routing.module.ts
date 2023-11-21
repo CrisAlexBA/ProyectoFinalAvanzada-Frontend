@@ -18,6 +18,8 @@ import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestio
 import {CrearMedicoComponent} from "./pagina/admin/crear-medico/crear-medico.component";
 import {DetalleMedicoComponent} from "./pagina/admin/detalle-medico/detalle-medico.component";
 import {EditarMedicoComponent} from "./pagina/admin/editar-medico/editar-medico.component";
+import {GestionarPqrsAdminComponent} from "./pagina/admin/gestionar-pqrs-admin/gestionar-pqrs-admin.component";
+import {DetallePqrsAdminComponent} from "./pagina/admin/detalle-pqrs-admin/detalle-pqrs-admin.component";
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -110,7 +112,8 @@ const routes: Routes = [
   {path: 'crear-medico', component: CrearMedicoComponent},
   {path: 'detalle-medico/:codigo', component: DetalleMedicoComponent},
   {path: 'editar-medico/:codigo', component: EditarMedicoComponent},
-
+  {path: 'gestion-pqrs-admin', component: GestionarPqrsAdminComponent},
+  {path: 'detalle-pqrs-admin/:codigo', component: DetallePqrsAdminComponent},
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 @NgModule({

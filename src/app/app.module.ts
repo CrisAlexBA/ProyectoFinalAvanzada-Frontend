@@ -26,6 +26,8 @@ import {GestionarMedicosComponent} from "./pagina/admin/gestionar-medicos/gestio
 import { DetalleMedicoComponent } from './pagina/admin/detalle-medico/detalle-medico.component';
 import { EditarMedicoComponent } from './pagina/admin/editar-medico/editar-medico.component';
 import { GestionarPqrsAdminComponent } from './pagina/admin/gestionar-pqrs-admin/gestionar-pqrs-admin.component';
+import { DetallePqrsAdminComponent } from './pagina/admin/detalle-pqrs-admin/detalle-pqrs-admin.component';
+import { GestionarCitasComponent } from './pagina/medico/gestionar-citas/gestionar-citas.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { GestionarPqrsAdminComponent } from './pagina/admin/gestionar-pqrs-admin
     CrearMedicoComponent,
     DetalleMedicoComponent,
     EditarMedicoComponent,
-    GestionarPqrsAdminComponent
+    GestionarPqrsAdminComponent,
+    DetallePqrsAdminComponent,
+    GestionarCitasComponent
   ],
     imports: [
         BrowserModule,
