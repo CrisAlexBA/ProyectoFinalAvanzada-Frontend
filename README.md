@@ -1,4 +1,8 @@
+#Proyecto Final Avanzada - FRONTEND 
+
 Integrantes:
 
-Yhonatan Steven Gómez Valencia
-Cristian Alexander Bedón Astudillo
+- Cristian Alexander Bedón Astudillo
+- Yhonatan Steven Gómez Valencia
+
+Repositorio del Backend: https://github.com/JhonatanGV03/ProyectoFinalAvanzada.git
