@@ -91,18 +91,19 @@
           <!-- Hora -->
           <div class="mb-3">
             <label class="col-form-label">Hora: </label>
-            <select
-              name="hora"
-              required
-              class="form-select"
-              [(ngModel)]="detallesCitaDTO.hora"
-            >
-              <option value="" selected>Seleccione una hora</option>
-              <option [value]="item" *ngFor="let item of horas; index as i">
-                {{ item }}
-              </option>
-            </select>
+            <select name="hora" required class="form-select" >
+<option value="" selected>Seleccione un hora</option> 
+<option value="7:00:00" >7:00:00</option> 
+<option value="8:00:00" >8:00:00</option> 
+<option value="9:00:00" >9:00:00</option> 
+<option value="10:00:00" >10:00:00</option> 
+<option value="14:00:00" >14:00:00</option> 
+<option value="15:00:00" >15:00:00</option> 
+<option value="16:00:00" >16:00:00</option> 
+</select> 
+          
           </div>
+          
         </div>
       </div>
       

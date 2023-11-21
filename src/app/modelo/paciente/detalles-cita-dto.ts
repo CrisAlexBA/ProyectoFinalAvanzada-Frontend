@@ -4,7 +4,7 @@ export class DetallesCitaDTO {
         especialidad:string="";
         codigoMedico:number= 0;
         fecha:string = "";
-        hora:Date | null=  null;
+        hora:string=  "";
         motivoConsulta:string="";
         estadoCita:String ="";
 
