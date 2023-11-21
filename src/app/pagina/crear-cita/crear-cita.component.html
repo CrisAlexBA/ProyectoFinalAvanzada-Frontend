@@ -59,7 +59,7 @@
             >
               <option value="" selected>Seleccione un médico</option>
               <option [value]="item" *ngFor="let item of medicos; index as i">
-                {{ item }}
+                {{ item.nombre }}
               </option>
             </select>
           </div>

@@ -23,4 +23,7 @@ return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-eps`);
 public listarTiposPQRS(): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-tipos-PQRS`);
     }
+    public listarMedicos(): Observable<MensajeDTO> {
+        return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-medicos`);
+        }
 }
