@@ -21,6 +21,7 @@ import {EditarMedicoComponent} from "./pagina/admin/editar-medico/editar-medico.
 import {GestionarPqrsAdminComponent} from "./pagina/admin/gestionar-pqrs-admin/gestionar-pqrs-admin.component";
 import {DetallePqrsAdminComponent} from "./pagina/admin/detalle-pqrs-admin/detalle-pqrs-admin.component";
 import {GestionarCitasComponent} from "./pagina/medico/gestionar-citas/gestionar-citas.component";
+import {AtencionCitaComponent} from "./pagina/medico/atencion-cita/atencion-cita.component";
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -116,6 +117,7 @@ const routes: Routes = [
   {path: 'gestion-pqrs-admin', component: GestionarPqrsAdminComponent},
   {path: 'detalle-pqrs-admin/:codigo', component: DetallePqrsAdminComponent},
   {path: 'gestion-citas-medico', component: GestionarCitasComponent},
+  {path: 'atencion-cita/:codigo', component: AtencionCitaComponent},
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 @NgModule({
